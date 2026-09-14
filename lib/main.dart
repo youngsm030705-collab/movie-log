@@ -36,6 +36,8 @@ class StartScreen extends StatelessWidget {
                 Icons.movie_outlined,
                 size: 72,
                 color: Colors.deepPurple,
+                semanticLabel: '영화 아이콘',
+
               ),
               const SizedBox(height: 24),
               const Text(
