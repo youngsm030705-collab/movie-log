@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'theme/app_theme.dart';
+import 'profile_screen.dart';
+
+import 'package:flutter_svg/flutter_svg.dart';
+
+import 'sign_up_screen.dart';
+
 void main() {
   runApp(const MovieLogApp());
 }
@@ -12,10 +19,8 @@ class MovieLogApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MovieLog',
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: const StartScreen(),
+      theme: AppTheme.light,
+      home: const SignUpScreen(),
     );
   }
 }
@@ -32,12 +37,11 @@ class StartScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.movie_outlined,
-                size: 72,
-                color: Colors.deepPurple,
-                semanticLabel: '영화 아이콘',
-
+              SvgPicture.asset(
+                'assets/logos/movielog_logo.svg',
+                width: 72,
+                height: 72,
+                semanticsLabel: 'MovieLog Logo',
               ),
               const SizedBox(height: 24),
               const Text(
@@ -45,19 +49,13 @@ class StartScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
               const Text(
                 '보고 싶은 영화부터 나만의 평점까지 한곳에서 관리해요',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
               const SizedBox(height: 32),
               ElevatedButton(
@@ -77,4 +75,3 @@ class StartScreen extends StatelessWidget {
     );
   }
 }
-
